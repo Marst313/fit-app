@@ -1,15 +1,16 @@
+import ButtonCustom from "@/components/ButtonCustom";
 import { ThemedText } from "@/components/ThemedText";
-import { Colors, gradientRadial } from "@/constants/Colors";
+import { gradientRadial } from "@/constants/Colors";
 import { LinearGradient } from "expo-linear-gradient";
 import { useRouter } from "expo-router";
 import React from "react";
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 
 export default function StartScreen() {
   const router = useRouter();
 
   function handleOnPress() {
-    router.push("/login");
+    router.push("/LoginScreen");
   }
 
   return (
@@ -32,9 +33,7 @@ export default function StartScreen() {
 
         <View style={styles.containerForm}>
           {/* BUTTON LOGIN */}
-          <Pressable onPress={handleOnPress} style={({ pressed }) => [styles.btnLogin, { opacity: pressed ? 0.7 : 1 }]} android_ripple={{ color: Colors.yellow.secondary }}>
-            <Text style={styles.btnText}>Log in</Text>
-          </Pressable>
+          <ButtonCustom text="Log in" onPress={handleOnPress} style={{ marginTop: "auto" }} />
         </View>
       </View>
     </View>
@@ -80,18 +79,5 @@ const styles = StyleSheet.create({
     height: 800,
     alignSelf: "center",
     marginTop: 50,
-  },
-  btnLogin: {
-    backgroundColor: Colors.yellow.primary,
-    paddingVertical: 10,
-    borderRadius: 10,
-    marginTop: "auto",
-    overflow: "hidden",
-  },
-  btnText: {
-    color: Colors.pink.dark,
-    textAlign: "center",
-    fontWeight: "bold",
-    fontSize: 15,
   },
 });

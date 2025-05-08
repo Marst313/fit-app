@@ -1,10 +1,18 @@
+import ButtonCustom from "@/components/ButtonCustom";
 import { ThemedText } from "@/components/ThemedText";
 import { Colors, gradientRadial } from "@/constants/Colors";
 import { LinearGradient } from "expo-linear-gradient";
+import { useRouter } from "expo-router";
 import React from "react";
-import { Image, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import { Image, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 
-export default function Login() {
+export default function LoginScreen() {
+  const router = useRouter();
+
+  function handleOnPress() {
+    router.push("/question/GenderScreen");
+  }
+
   return (
     <View style={styles.container}>
       <LinearGradient style={styles.topContainer} colors={gradientRadial} start={{ x: 0.5, y: 0 }} end={{ x: 0.5, y: 1 }}>
@@ -42,9 +50,7 @@ export default function Login() {
           </View>
         </ScrollView>
         {/* BUTTON LOGIN */}
-        <Pressable style={styles.btnLogin}>
-          <Text style={styles.btnText}>Log in</Text>
-        </Pressable>
+        <ButtonCustom text="Log in" onPress={handleOnPress} style={{ marginTop: "auto" }} />
       </View>
     </View>
   );

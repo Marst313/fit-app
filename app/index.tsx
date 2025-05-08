@@ -9,7 +9,7 @@ export default function Index() {
 
   React.useLayoutEffect(() => {
     const timeout = setTimeout(() => {
-      router.replace("/startscreen");
+      router.replace("/StartScreen");
     }, 3000);
 
     return () => clearTimeout(timeout);
