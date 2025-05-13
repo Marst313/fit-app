@@ -1,6 +1,7 @@
 import ButtonCustom from "@/components/ButtonCustom";
 import { ThemedText } from "@/components/ThemedText";
 import { Colors } from "@/constants/Colors";
+import { calculateBmi } from "@/constants/function";
 import { LinearGradient } from "expo-linear-gradient";
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
@@ -22,12 +23,22 @@ function BmiScreen() {
   }
 
   function handleOnNext() {
-    // if (!weight || !height) return;
-
     console.log("Weight " + weight);
     console.log("Height " + height);
 
     router.push("/question/GoalScreen");
+  }
+
+  const numericWeight = Number(weight);
+  const numericHeight = Number(height);
+
+  let bmiStatus = "";
+  let bmiImage = require("@/assets/images/avatar/underweightFemale.png");
+
+  if (numericWeight > 0 && numericHeight > 0) {
+    const { status, image } = calculateBmi(numericWeight, numericHeight);
+    bmiStatus = status;
+    bmiImage = image;
   }
 
   return (
@@ -41,7 +52,7 @@ function BmiScreen() {
 
         <View style={styles.imageContainer}>
           {/* Woman Image */}
-          <Image source={require("@/assets/images/avatar/underweightFemale.png")} style={styles.activeImage} resizeMode="contain" />
+          <Image source={bmiImage} style={styles.activeImage} resizeMode="contain" />
         </View>
 
         <View style={styles.containerForm}>
@@ -49,7 +60,7 @@ function BmiScreen() {
             Your Body Mass Index is
           </ThemedText>
           <ThemedText type="title" style={{ textAlign: "center" }}>
-            UNDERWEIGHT
+            {bmiStatus}
           </ThemedText>
 
           {/* Weight */}

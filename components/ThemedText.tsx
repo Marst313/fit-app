@@ -2,12 +2,10 @@ import { Colors } from "@/constants/Colors";
 import { StyleSheet, Text, type TextProps } from "react-native";
 
 export type ThemedTextProps = TextProps & {
-  lightColor?: string;
-  darkColor?: string;
   type?: "default" | "title" | "defaultSemiBold" | "subtitle" | "link" | "paragraph";
 };
 
-export function ThemedText({ style, lightColor, darkColor, type = "default", ...rest }: ThemedTextProps) {
+export function ThemedText({ style, type = "default", ...rest }: ThemedTextProps) {
   return (
     <Text
       style={[
@@ -44,6 +42,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: Colors.pink.text,
     lineHeight: 32,
+    fontWeight: "300",
   },
   subtitle: {
     fontSize: 20,
