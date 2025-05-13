@@ -28,7 +28,7 @@ export const WeeklyProgress = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: Colors.pink.thertiary,
+    backgroundColor: "rgba(176, 50, 94, 0.5)",
     padding: 10,
     borderRadius: 15,
     flexDirection: "row",
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: Colors.yellow.primary,
-    borderColor: "black",
+    borderColor: Colors.pink.dark,
   },
   date: {
     color: Colors.pink.dark,

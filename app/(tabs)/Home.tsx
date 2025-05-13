@@ -1,12 +1,17 @@
 import { HomeHeader } from "@/components/home/HomeHeader";
 import HomeInfo from "@/components/home/HomeInfo";
+import { HomeType } from "@/components/home/HomeType";
+import ListExercise from "@/components/home/ListExercise";
 import { WeeklyProgress } from "@/components/home/WeeklyProgress";
 import { Colors } from "@/constants/Colors";
+import { TTypeWorkout } from "@/constants/type";
 import { LinearGradient } from "expo-linear-gradient";
-import React from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet } from "react-native";
 
 function HomeScreen() {
+  const [typeWorkout, setTypeWorkout] = useState<TTypeWorkout>("All Types");
+
   return (
     <LinearGradient colors={[Colors.pink.primary, "#fbb4a5", "#ffe893", "#fcffc1", "#ffe893", "#fbb4a5", "#fb9ec6"]} start={{ x: 0.5, y: 0 }} end={{ x: 0.5, y: 1 }} style={styles.container}>
       {/* Header Home */}
@@ -18,33 +23,11 @@ function HomeScreen() {
       {/* Home Info */}
       <HomeInfo />
 
-      {/* Type */}
-      <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-        <Pressable style={{ backgroundColor: Colors.pink.thertiary, paddingVertical: 5, paddingHorizontal: 10, borderRadius: 20 }}>
-          <Text style={{ color: "white" }}>All Types</Text>
-        </Pressable>
+      {/* Home Type */}
+      <HomeType typeWorkout={typeWorkout} setTypeWorkout={setTypeWorkout} />
 
-        <Pressable style={{ backgroundColor: "white", paddingVertical: 5, paddingHorizontal: 10, borderRadius: 20 }}>
-          <Text style={{ color: Colors.pink.thertiary }}>Gym</Text>
-        </Pressable>
-
-        <Pressable style={{ backgroundColor: Colors.pink.thertiary, paddingVertical: 5, paddingHorizontal: 10, borderRadius: 20 }}>
-          <Text style={{ color: "white" }}>Dumbbell</Text>
-        </Pressable>
-
-        <Pressable style={{ backgroundColor: Colors.pink.thertiary, paddingVertical: 5, paddingHorizontal: 10, borderRadius: 20 }}>
-          <Text style={{ color: "white" }}>Yoga</Text>
-        </Pressable>
-      </View>
-
-      <View style={{ backgroundColor: Colors.pink.thertiary, borderRadius: 20 }}>
-        <Text>Full Body</Text>
-        <Text>Full Body</Text>
-        <Text>Full Body</Text>
-        <Text>Full Body</Text>
-        <Text>Full Body</Text>
-        <Text>Full Body</Text>
-      </View>
+      {/* Home List Exercise */}
+      <ListExercise />
     </LinearGradient>
   );
 }
@@ -55,7 +38,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 30,
-    paddingVertical: 50,
+    paddingVertical: 40,
     gap: 20,
   },
 });

@@ -39,7 +39,6 @@ export default function Layout() {
         tabBarStyle: {
           backgroundColor: Colors.pink.light,
           height: 90,
-          paddingHorizontal: 10,
           paddingVertical: 10,
         },
         tabBarActiveTintColor: Colors.pink.light,

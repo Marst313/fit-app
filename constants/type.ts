@@ -11,3 +11,5 @@ export type TWeeklyProgress = {
   date: string;
   progress: number;
 };
+
+export type TTypeWorkout = "All Types" | "Gym" | "Dumbbell" | "Calisthenics";

@@ -1,4 +1,4 @@
-import { TWeeklyProgress } from "./type";
+import { TTypeWorkout, TWeeklyProgress } from "./type";
 
 export const DummyDataWeeklyProgress: TWeeklyProgress[] = [
   {
@@ -37,3 +37,5 @@ export const DummyDataWeeklyProgress: TWeeklyProgress[] = [
     progress: 80,
   },
 ];
+
+export const DataTypeWorkout: TTypeWorkout[] = ["All Types", "Gym", "Dumbbell", "Calisthenics"];

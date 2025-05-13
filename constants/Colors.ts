@@ -5,6 +5,7 @@ export const Colors = {
     secondary: "#fbb4a5",
     thertiary: "#b0325e",
     forthiary: "#e20051",
+    primary200: "#c36d79",
     dark: "#7a2537",
     light: "#efe3e8",
   },
